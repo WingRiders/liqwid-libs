@@ -446,9 +446,7 @@ checkMints =
       contramap
         ( all
             ( \(cs, tk, a) ->
-                if cs == adaSymbol && tk == adaToken
-                  then a == 0
-                  else a /= 0
+                cs /= adaSymbol || tk /= adaToken || a == 0
             )
             . flattenValue
         )
